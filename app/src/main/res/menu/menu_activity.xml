@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/idMantenimiento"  android:title="Registros" >
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:id="@+id/idMenuRegCliente" android:title="Cliente" />
+         </menu>
+    </item>
+
+
+    <item android:id="@+id/idConsulta"  android:title="Consultas" >
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:id="@+id/idMenuConsultaCliente" android:title="Cliente" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/idCrud"  android:title="Mantenimiento" >
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:id="@+id/idMenuCrudCliente" android:title="Cliente" />
+        </menu>
+    </item>
+
+</menu>
