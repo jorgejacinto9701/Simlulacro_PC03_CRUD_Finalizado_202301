@@ -57,6 +57,8 @@ public class ClienteCrudListaActivity extends NewAppCompatActivity {
             }
         });
 
+
+
         btnCrudListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
