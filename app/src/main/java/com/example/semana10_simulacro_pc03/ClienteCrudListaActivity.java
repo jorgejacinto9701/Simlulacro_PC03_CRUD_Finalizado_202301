@@ -21,7 +21,9 @@ public class ClienteCrudListaActivity extends NewAppCompatActivity {
         btnCrudRegistra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClienteCrudListaActivity.this, ClienteCrudFormularioActivity.class);
+                Intent intent = new Intent(
+                        ClienteCrudListaActivity.this,
+                        ClienteCrudFormularioActivity.class);
                 startActivity(intent);
             }
         });
