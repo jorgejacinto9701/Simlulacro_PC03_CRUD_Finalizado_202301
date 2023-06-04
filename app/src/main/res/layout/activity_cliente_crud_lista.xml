@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ClienteCrudListaActivity"
+    android:orientation="vertical"
     >
 
     <TextView
-        android:layout_width="wrap_content"
-        androidº:layout_height="wrap_content"
-        android:text="LISTA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Crud Cliente"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnCrudListar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar" />
+
+    <Button
+        android:id="@+id/btnCrudRegistra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registra" />
+
+
+    <GridView
+        android:id="@+id/gridCrudClientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="1"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
