@@ -70,11 +70,14 @@ public class ClienteCrudListaActivity extends NewAppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Cliente objCliente = data.get(position);
+
                 Intent intent = new Intent(
                         ClienteCrudListaActivity.this,
                         ClienteCrudFormularioActivity.class);
                 intent.putExtra("var_titulo", "ACTUALIZA CLIENTE");
                 intent.putExtra("var_tipo", "ACTUALIZA");
+                intent.putExtra("var_objeto", objCliente);
                 startActivity(intent);
 
             }

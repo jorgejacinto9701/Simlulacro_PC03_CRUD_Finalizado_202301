@@ -94,7 +94,7 @@
                 android:textStyle="normal" />
 
             <Spinner
-                android:id="@+id/spnCrudClienteCategforia"
+                android:id="@+id/spnCrudClienteCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"/>
