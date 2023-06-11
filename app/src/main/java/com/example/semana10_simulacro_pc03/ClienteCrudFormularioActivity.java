@@ -41,6 +41,12 @@ public class ClienteCrudFormularioActivity extends NewAppCompatActivity {
     ArrayAdapter<String> adaptadorEstado;
     ArrayList<String> lstNombresEstado = new ArrayList<String>();
 
+    //El tipo define si es REGISTRA o ACTUALIZA
+    String tipo;
+
+    //Se recibe el cliente seleccionado
+    Cliente objClienteSeleccionado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,34 +77,22 @@ public class ClienteCrudFormularioActivity extends NewAppCompatActivity {
         lstNombresEstado.add("0:Inactivo");
         adaptadorEstado.notifyDataSetChanged();
 
+
         Bundle extras = getIntent().getExtras();
-        String tipo = (String) extras.get("var_tipo");
+        tipo = (String) extras.get("var_tipo");
         String titulo = (String) extras.get("var_titulo");
 
+        cargaCategoria();
 
         if (tipo.equals("ACTUALIZA")){
-            Cliente objCliente = (Cliente) extras.get("var_objeto");
-            txtNombre.setText(objCliente.getNombre());
-            txtDNI.setText(objCliente.getDni());
-            if (objCliente.getEstado() == 0){
+            objClienteSeleccionado = (Cliente) extras.get("var_objeto");
+            txtNombre.setText(objClienteSeleccionado.getNombre());
+            txtDNI.setText(objClienteSeleccionado.getDni());
+            if (objClienteSeleccionado.getEstado() == 0){
                 spnEstado.setSelection(1);
             }else{
                 spnEstado.setSelection(0);
             }
-
-
-
-            Categoria objCategoria = objCliente.getCategoria();
-            String aux2 = objCategoria.getIdCategoria()+":"+objCategoria.getDescripcion();
-            int pos = -1;
-            for(int i=0; i< lstNombresCategoria.size(); i++){
-                if (lstNombresCategoria.get(i).equals(aux2)){
-                      pos = i;
-                      break;
-                }
-            }
-
-            spnCategoria.setSelection(pos);
         }
 
 
@@ -144,7 +138,7 @@ public class ClienteCrudFormularioActivity extends NewAppCompatActivity {
             }
         });
 
-        cargaCategoria();
+
     }
 
     public void insertaCliente(Cliente objCliente){
@@ -210,6 +204,19 @@ public class ClienteCrudFormularioActivity extends NewAppCompatActivity {
                         lstNombresCategoria.add(obj.getIdCategoria()+":"+obj.getDescripcion());
                     }
                     adaptadorCategoria.notifyDataSetChanged();
+                    if (tipo.equals("ACTUALIZA")){
+                        Categoria objCategoria = objClienteSeleccionado.getCategoria();
+                        String aux2 = objCategoria.getIdCategoria()+":"+objCategoria.getDescripcion();
+                        int pos = -1;
+                        for(int i=0; i< lstNombresCategoria.size(); i++){
+                            if (lstNombresCategoria.get(i).equals(aux2)){
+                                pos = i;
+                                break;
+                            }
+                        }
+                        spnCategoria.setSelection(pos);
+                    }
+
                 }else{
                     mensajeAlert(""+response.message());
                 }

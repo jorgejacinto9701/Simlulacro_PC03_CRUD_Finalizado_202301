@@ -82,6 +82,8 @@ public class ClienteCrudListaActivity extends NewAppCompatActivity {
 
             }
         });
+
+        lista();
     }
 
     public void lista(){
